@@ -32,10 +32,10 @@
     <center>
         <TableView fx:id="tableView">
             <columns>
-                <TableColumn fx:id="titleColumn" maxWidth="350.0" minWidth="350.0" prefWidth="350.0" text="Movie Title" />
-                <TableColumn fx:id="imdbRatingColumn" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="IMDb Rating" />
-                <TableColumn fx:id="personalRatingColumn" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" text="Personal Rating" />
-            <TableColumn fx:id="categoryColumn" maxWidth="200.0" minWidth="200.0" prefWidth="200.0" text="Category" />
+                <TableColumn fx:id="titleColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="194.0" text="Movie Title" />
+                <TableColumn fx:id="imdbRatingColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="194.0" text="IMDb Rating" />
+                <TableColumn fx:id="personalRatingColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="194.0" text="Personal Rating" />
+            <TableColumn fx:id="categoryColumn" maxWidth="1.7976931348623157E308" minWidth="100.0" prefWidth="194.0" text="Category" />
             </columns>
         </TableView>
     </center>

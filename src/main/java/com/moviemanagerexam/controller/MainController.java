@@ -156,10 +156,10 @@ public class MainController {
             dialog.setContentText("Category:");
 
             dialog.showAndWait().ifPresent(selected -> {
-                boolean confirmed = AlertHelper.showConfirmation("Delete Category", "Are you sure you want to delete category: " + selected.getName() + "?");
+                boolean confirmed = AlertHelper.showConfirmation("Delete Category", "Are you sure you want to delete category: " + selected.name() + "?");
                 if (confirmed) {
                     try {
-                        categoryDAO.deleteCategory(selected.getId());
+                        categoryDAO.deleteCategory(selected.id());
                         loadCategories();
                     } catch (SQLException e) {
                         AlertHelper.showError("Database Error", "Failed to delete category: " + e.getMessage());
@@ -186,7 +186,7 @@ public class MainController {
             List<Category> categories = categoryDAO.getAllCategories();
             categoryFilterMenu.getItems().clear();
             for (Category category : categories) {
-                CheckMenuItem item = new CheckMenuItem(category.getName());
+                CheckMenuItem item = new CheckMenuItem(category.name());
                 item.setUserData(category);
                 item.selectedProperty().addListener((obs, old, val) -> filterMovies());
                 categoryFilterMenu.getItems().add(item);
@@ -216,7 +216,7 @@ public class MainController {
                 matchesCategory = selectedCategories.stream()
                         .anyMatch(item -> {
                             Category cat = (Category) item.getUserData();
-                            return movie.getCategories().contains(cat.getName());
+                            return movie.getCategories().contains(cat.name());
                         });
             }
 
@@ -337,8 +337,8 @@ public class MainController {
                                 try {
                                     List<Category> allCategories = categoryDAO.getAllCategories();
                                     for (Category cat : allCategories) {
-                                        if (cat.getName().equalsIgnoreCase(genre)) {
-                                            movieCategoryDAO.addMovieToCategory(movie.getId(), cat.getId());
+                                        if (cat.name().equalsIgnoreCase(genre)) {
+                                            movieCategoryDAO.addMovieToCategory(movie.getId(), cat.id());
                                             break;
                                         }
                                     }
@@ -437,7 +437,7 @@ public class MainController {
             catDialog.setHeaderText("Add a category to '" + movie.getTitle() + "'");
             catDialog.showAndWait().ifPresent(cat -> {
                 try {
-                    movieCategoryDAO.addMovieToCategory(movie.getId(), cat.getId());
+                    movieCategoryDAO.addMovieToCategory(movie.getId(), cat.id());
                 } catch (SQLException e) {
                     AlertHelper.showError("Database Error", "Failed to link category: " + e.getMessage());
                 }

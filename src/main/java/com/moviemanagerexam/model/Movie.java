@@ -6,9 +6,9 @@ import java.util.List;
 public class Movie {
     private int id;
     private String title;
-    private double imdbRating;
+    private final double imdbRating;
     private int personalRating;
-    private String fileLink;
+    private final String fileLink;
     private String lastView;
     private List<String> categories;
 
@@ -50,10 +50,6 @@ public class Movie {
         return imdbRating;
     }
 
-    public void setImdbRating(double imdbRating) {
-        this.imdbRating = imdbRating;
-    }
-
     public int getPersonalRating() {
         return personalRating;
     }
@@ -66,16 +62,8 @@ public class Movie {
         return fileLink;
     }
 
-    public void setFileLink(String fileLink) {
-        this.fileLink = fileLink;
-    }
-
     public String getLastView() {
         return lastView;
-    }
-
-    public void setLastView(String lastView) {
-        this.lastView = lastView;
     }
 
     public List<String> getCategories() {
