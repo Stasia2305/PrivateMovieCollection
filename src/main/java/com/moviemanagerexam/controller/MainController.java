@@ -48,6 +48,8 @@ public class MainController {
     @FXML private Button editButton;
     @FXML private Button editRatingButton;
     @FXML private Button playButton;
+    @FXML private Button addCategoryButton;
+    @FXML private Button deleteCategoryButton;
 
     private MovieDAO movieDAO;
     private CategoryDAO categoryDAO;
@@ -138,6 +140,8 @@ public class MainController {
         editButton.setOnAction(event -> editMovie());
         editRatingButton.setOnAction(event -> editRating());
         deleteButton.setOnAction(event -> deleteMovie());
+        addCategoryButton.setOnAction(event -> addCategory());
+        deleteCategoryButton.setOnAction(event -> deleteCategory());
     }
 
     private void loadMovies() {
@@ -469,6 +473,57 @@ public class MainController {
             } catch (SQLException e) {
                 AlertHelper.showError("Delete Error", "Failed to delete movie: " + e.getMessage());
             }
+        }
+    }
+
+    private void addCategory() {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("Add Category");
+        dialog.setHeaderText("Create a new category");
+        dialog.setContentText("Category name:");
+        dialog.showAndWait().ifPresent(categoryName -> {
+            if (categoryName.trim().isEmpty()) {
+                AlertHelper.showWarning("Empty Name", "Please enter a category name.");
+                return;
+            }
+            try {
+                categoryDAO.addCategory(categoryName.trim());
+                loadCategories();
+                AlertHelper.showInfo("Success", "Category '" + categoryName + "' added successfully.");
+            } catch (SQLException e) {
+                AlertHelper.showError("Database Error", "Failed to add category: " + e.getMessage());
+            }
+        });
+    }
+
+    private void deleteCategory() {
+        try {
+            List<Category> categories = categoryDAO.getAllCategories();
+            if (categories.isEmpty()) {
+                AlertHelper.showWarning("No Categories", "There are no categories to delete.");
+                return;
+            }
+            ChoiceDialog<Category> dialog = new ChoiceDialog<>(categories.get(0), categories);
+            dialog.setTitle("Delete Category");
+            dialog.setHeaderText("Select a category to delete");
+            dialog.showAndWait().ifPresent(selectedCategory -> {
+                boolean confirmed = AlertHelper.showConfirmation(
+                        "Confirm Delete",
+                        "Are you sure you want to delete the category '" + selectedCategory.name() + "'?"
+                );
+                if (confirmed) {
+                    try {
+                        categoryDAO.deleteCategory(selectedCategory.id());
+                        loadCategories();
+                        loadMovies();
+                        AlertHelper.showInfo("Success", "Category deleted successfully.");
+                    } catch (SQLException e) {
+                        AlertHelper.showError("Database Error", "Failed to delete category: " + e.getMessage());
+                    }
+                }
+            });
+        } catch (SQLException e) {
+            AlertHelper.showError("Database Error", "Failed to load categories: " + e.getMessage());
         }
     }
 }
