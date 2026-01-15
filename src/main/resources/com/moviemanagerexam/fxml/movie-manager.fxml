@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane prefHeight="538.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.moviemanagerexam.controller.MainController">
+<BorderPane prefHeight="538.0" prefWidth="775.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.moviemanagerexam.gui.controller.MainController">
     <top>
         <VBox spacing="5">
             <HBox alignment="CENTER_LEFT" spacing="10">
@@ -17,14 +17,6 @@
                 <MenuButton fx:id="categoryFilterMenu" text="Select Categories" />
                 <Label text="Min Rating:" />
                 <Spinner fx:id="minRatingSpinner" prefWidth="80" />
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="10">
-                <padding>
-                    <Insets bottom="10" left="10" right="10" top="0" />
-                </padding>
-                <Label text="IMDb Link:" />
-                <TextField fx:id="imdbLinkField" prefWidth="300" promptText="Paste IMDb URL..." />
-                <Button fx:id="addByLinkButton" text="Add by Link" />
             </HBox>
          <ButtonBar prefHeight="0.0" prefWidth="598.0" />
         </VBox>
