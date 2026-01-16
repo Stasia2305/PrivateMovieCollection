@@ -1,5 +1,6 @@
 package com.moviemanagerexam;
 
+import com.moviemanagerexam.util.MovieManager;
 import javafx.application.Application;
 
 public class Launcher {
