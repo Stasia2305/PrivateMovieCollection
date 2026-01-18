@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>shelved.patch</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+shelved.patch</font>
+</center></td></tr></table>
+<pre><span class="s0">Index: src/main/java/dal/ConnectionManager.java 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP 
+&lt;+&gt;package dal;\n\nimport com.microsoft.sqlserver.jdbc.SQLServerDataSource;\nimport com.microsoft.sqlserver.jdbc.SQLServerException;\nimport java.sql.Connection;\n\n\npublic class ConnectionManager {\n    public Connection getConnection() throws SQLServerException {\n        SQLServerDataSource ds;\n        ds = new SQLServerDataSource();\n        ds.setDatabaseName(\&quot;PrivateMovieCollection1\&quot;);\n        ds.setUser(\&quot;CS2025b_e_5\&quot;);\n        ds.setPassword(\&quot;CS2025bE5#23\&quot;);\n        ds.setServerName(\&quot;EASV-DB4\&quot;);\n        ds.setPortNumber(1433);\n        ds.setTrustServerCertificate(true);\n        return (Connection) ds.getConnection();\n    }\n}\n 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/src/main/java/dal/ConnectionManager.java b/src/main/java/dal/ConnectionManager.java 
+--- a/src/main/java/dal/ConnectionManager.java  (revision 6c4f0c5478ebbfdfe38fb00119f7352022968ba3) 
++++ b/src/main/java/dal/ConnectionManager.java  (date 1768338387329) 
+@@ -15,6 +15,6 @@ 
+         ds.setServerName(&quot;EASV-DB4&quot;); 
+         ds.setPortNumber(1433); 
+         ds.setTrustServerCertificate(true); 
+-        return (Connection) ds.getConnection(); 
++        return ds.getConnection(); 
+     } 
+ } 
+Index: .idea/data_source_mapping.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/data_source_mapping.xml b/.idea/data_source_mapping.xml 
+new file mode 100644 
+--- /dev/null   (date 1768421488395) 
++++ b/.idea/data_source_mapping.xml (date 1768421488395) 
+@@ -0,0 +1,6 @@ 
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
++&lt;project version=&quot;4&quot;&gt; 
++  &lt;component name=&quot;DataSourcePerFileMappings&quot;&gt; 
++    &lt;file url=&quot;file://$APPLICATION_CONFIG_DIR$/consoles/db/3fb947a8-f01a-47b3-ba7d-7f556b1c5bbf/console.sql&quot; value=&quot;3fb947a8-f01a-47b3-ba7d-7f556b1c5bbf&quot; /&gt; 
++  &lt;/component&gt; 
++&lt;/project&gt; 
+\ No newline at end of file 
+Index: .idea/misc.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP 
+&lt;+&gt;&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;UTF-8\&quot;?&gt;\n&lt;project version=\&quot;4\&quot;&gt;\n  &lt;component name=\&quot;ExternalStorageConfigurationManager\&quot; enabled=\&quot;true\&quot; /&gt;\n  &lt;component name=\&quot;MavenProjectsManager\&quot;&gt;\n    &lt;option name=\&quot;originalFiles\&quot;&gt;\n      &lt;list&gt;\n        &lt;option value=\&quot;$PROJECT_DIR$/pom.xml\&quot; /&gt;\n      &lt;/list&gt;\n    &lt;/option&gt;\n  &lt;/component&gt;\n  &lt;component name=\&quot;ProjectRootManager\&quot; version=\&quot;2\&quot; languageLevel=\&quot;JDK_25\&quot; project-jdk-name=\&quot;liberica-full-25\&quot; project-jdk-type=\&quot;JavaSDK\&quot;&gt;\n    &lt;output url=\&quot;file://$PROJECT_DIR$/out\&quot; /&gt;\n  &lt;/component&gt;\n&lt;/project&gt; 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/misc.xml b/.idea/misc.xml 
+--- a/.idea/misc.xml    (revision 6c4f0c5478ebbfdfe38fb00119f7352022968ba3) 
++++ b/.idea/misc.xml    (date 1768338156318) 
+@@ -8,7 +8,7 @@ 
+       &lt;/list&gt; 
+     &lt;/option&gt; 
+   &lt;/component&gt; 
+-  &lt;component name=&quot;ProjectRootManager&quot; version=&quot;2&quot; languageLevel=&quot;JDK_25&quot; project-jdk-name=&quot;liberica-full-25&quot; project-jdk-type=&quot;JavaSDK&quot;&gt; 
++  &lt;component name=&quot;ProjectRootManager&quot; version=&quot;2&quot; languageLevel=&quot;JDK_25&quot; project-jdk-name=&quot;openjdk-25&quot; project-jdk-type=&quot;JavaSDK&quot;&gt; 
+     &lt;output url=&quot;file://$PROJECT_DIR$/out&quot; /&gt; 
+   &lt;/component&gt; 
+ &lt;/project&gt; 
+\ No newline at end of file 
+Index: .idea/dataSources.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml 
+new file mode 100644 
+--- /dev/null   (date 1768421488394) 
++++ b/.idea/dataSources.xml (date 1768421488394) 
+@@ -0,0 +1,12 @@ 
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
++&lt;project version=&quot;4&quot;&gt; 
++  &lt;component name=&quot;DataSourceManagerImpl&quot; format=&quot;xml&quot; multifile-model=&quot;true&quot;&gt; 
++    &lt;data-source source=&quot;LOCAL&quot; name=&quot;movie_manager driver - identifier.sqlite&quot; uuid=&quot;3fb947a8-f01a-47b3-ba7d-7f556b1c5bbf&quot;&gt; 
++      &lt;driver-ref&gt;a2919df4-f275-4e84-a6ee-b1454aba54e9&lt;/driver-ref&gt; 
++      &lt;synchronize&gt;true&lt;/synchronize&gt; 
++      &lt;jdbc-driver&gt;org.sqlite.JDBC&lt;/jdbc-driver&gt; 
++      &lt;jdbc-url&gt;jdbc:sqlite:identifier.sqlite&lt;/jdbc-url&gt; 
++      &lt;working-dir&gt;$ProjectFileDir$&lt;/working-dir&gt; 
++    &lt;/data-source&gt; 
++  &lt;/component&gt; 
++&lt;/project&gt; 
+\ No newline at end of file 
+Index: .idea/.gitignore 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP 
+&lt;+&gt;# Default ignored files\n/shelf/\n/workspace.xml\n# Ignored default folder with query files\n/queries/\n# Datasource local storage ignored files\n/dataSources/\n/dataSources.local.xml\n# Editor-based HTTP Client requests\n/httpRequests/\n 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/.gitignore b/.idea/.gitignore 
+--- a/.idea/.gitignore  (revision 6c4f0c5478ebbfdfe38fb00119f7352022968ba3) 
++++ b/.idea/.gitignore  (date 1768338021949) 
+@@ -8,3 +8,7 @@ 
+ /dataSources.local.xml 
+ # Editor-based HTTP Client requests 
+ /httpRequests/ 
++# Zencoder local files 
++/zencoder 
++/zencoder-chat-index.xml 
++/zencoder-chats-dedicated.xml 
+Index: .idea/copilot.data.migration.edit.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/copilot.data.migration.edit.xml b/.idea/copilot.data.migration.edit.xml 
+new file mode 100644 
+--- /dev/null   (date 1768338015372) 
++++ b/.idea/copilot.data.migration.edit.xml (date 1768338015372) 
+@@ -0,0 +1,6 @@ 
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
++&lt;project version=&quot;4&quot;&gt; 
++  &lt;component name=&quot;EditMigrationStateService&quot;&gt; 
++    &lt;option name=&quot;migrationStatus&quot; value=&quot;COMPLETED&quot; /&gt; 
++  &lt;/component&gt; 
++&lt;/project&gt; 
+\ No newline at end of file 
+Index: .idea/copilot.data.migration.ask2agent.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/copilot.data.migration.ask2agent.xml b/.idea/copilot.data.migration.ask2agent.xml 
+new file mode 100644 
+--- /dev/null   (date 1768338015368) 
++++ b/.idea/copilot.data.migration.ask2agent.xml    (date 1768338015368) 
+@@ -0,0 +1,6 @@ 
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
++&lt;project version=&quot;4&quot;&gt; 
++  &lt;component name=&quot;Ask2AgentMigrationStateService&quot;&gt; 
++    &lt;option name=&quot;migrationStatus&quot; value=&quot;COMPLETED&quot; /&gt; 
++  &lt;/component&gt; 
++&lt;/project&gt; 
+\ No newline at end of file 
+Index: .idea/copilot.data.migration.agent.xml 
+IDEA additional info: 
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP 
+&lt;+&gt;UTF-8 
+=================================================================== 
+diff --git a/.idea/copilot.data.migration.agent.xml b/.idea/copilot.data.migration.agent.xml 
+new file mode 100644 
+--- /dev/null   (date 1768338015367) 
++++ b/.idea/copilot.data.migration.agent.xml    (date 1768338015367) 
+@@ -0,0 +1,6 @@ 
++&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
++&lt;project version=&quot;4&quot;&gt; 
++  &lt;component name=&quot;AgentMigrationStateService&quot;&gt; 
++    &lt;option name=&quot;migrationStatus&quot; value=&quot;COMPLETED&quot; /&gt; 
++  &lt;/component&gt; 
++&lt;/project&gt; 
+\ No newline at end of file 
+</span></pre>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>MainView.fxml</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #d5b778;}
+.s1 { color: #bcbec4;}
+.s2 { color: #6aab73;}
+.s3 { color: #bcbec4;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainView.fxml</font>
+</center></td></tr></table>
+<pre><span class="s0">&lt;?</span><span class="s1">xml version</span><span class="s2">=&quot;1.0&quot; </span><span class="s1">encoding</span><span class="s2">=&quot;UTF-8&quot;</span><span class="s0">?&gt;</span>
+
+<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.geometry.*</span><span class="s0">?&gt;</span>
+<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.scene.control.*</span><span class="s0">?&gt;</span>
+<span class="s0">&lt;?</span><span class="s1">import </span><span class="s2">javafx.scene.layout.*</span><span class="s0">?&gt;</span>
+
+<span class="s0">&lt;BorderPane </span><span class="s1">prefHeight</span><span class="s2">=&quot;538.0&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;775.0&quot; </span><span class="s1">xmlns</span><span class="s2">=&quot;http://javafx.com/javafx/17.0.12&quot; </span><span class="s1">xmlns:fx</span><span class="s2">=&quot;http://javafx.com/fxml/1&quot; </span><span class="s1">fx:controller</span><span class="s2">=&quot;gui.MainViewController&quot;</span><span class="s0">&gt;</span>
+    <span class="s0">&lt;top&gt;</span>
+        <span class="s0">&lt;VBox </span><span class="s1">spacing</span><span class="s2">=&quot;5&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;HBox </span><span class="s1">alignment</span><span class="s2">=&quot;CENTER_LEFT&quot; </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;padding&gt;</span>
+                    <span class="s0">&lt;Insets </span><span class="s1">bottom</span><span class="s2">=&quot;5&quot; </span><span class="s1">left</span><span class="s2">=&quot;10&quot; </span><span class="s1">right</span><span class="s2">=&quot;10&quot; </span><span class="s1">top</span><span class="s2">=&quot;10&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;/padding&gt;</span>
+                <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Search:&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;TextField </span><span class="s1">fx:id</span><span class="s2">=&quot;txtTitle&quot; </span><span class="s1">promptText</span><span class="s2">=&quot;Search movies...&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Min Rating:&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;TextField </span><span class="s1">fx:id</span><span class="s2">=&quot;txtMinRating&quot; </span><span class="s1">promptText</span><span class="s2">=&quot;0.0&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;80&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;Button </span><span class="s1">onAction</span><span class="s2">=&quot;#onFilterClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Filter&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;Button </span><span class="s1">onAction</span><span class="s2">=&quot;#onClearClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Clear&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/HBox&gt;</span>
+            <span class="s0">&lt;ButtonBar </span><span class="s1">prefHeight</span><span class="s2">=&quot;0.0&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;598.0&quot; </span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/VBox&gt;</span>
+    <span class="s0">&lt;/top&gt;</span>
+    <span class="s0">&lt;left&gt;</span>
+        <span class="s0">&lt;VBox </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;200&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;padding&gt;</span>
+                <span class="s0">&lt;Insets </span><span class="s1">bottom</span><span class="s2">=&quot;10&quot; </span><span class="s1">left</span><span class="s2">=&quot;10&quot; </span><span class="s1">right</span><span class="s2">=&quot;10&quot; </span><span class="s1">top</span><span class="s2">=&quot;10&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/padding&gt;</span>
+            <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Categories:&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;ListView </span><span class="s1">fx:id</span><span class="s2">=&quot;categoryListView&quot; </span><span class="s1">prefHeight</span><span class="s2">=&quot;200.0&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;HBox </span><span class="s1">alignment</span><span class="s2">=&quot;CENTER&quot; </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot;</span><span class="s0">&gt;</span>
+                <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;addCategoryButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onAddCategoryClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Add Category&quot; </span><span class="s0">/&gt;</span>
+                <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;deleteCategoryButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onDeleteCategoryClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Delete Category&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/HBox&gt;</span>
+        <span class="s0">&lt;/VBox&gt;</span>
+    <span class="s0">&lt;/left&gt;</span>
+    <span class="s0">&lt;center&gt;</span>
+        <span class="s0">&lt;VBox </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;padding&gt;</span>
+                <span class="s0">&lt;Insets </span><span class="s1">bottom</span><span class="s2">=&quot;10&quot; </span><span class="s1">left</span><span class="s2">=&quot;10&quot; </span><span class="s1">right</span><span class="s2">=&quot;10&quot; </span><span class="s1">top</span><span class="s2">=&quot;10&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/padding&gt;</span>
+            <span class="s0">&lt;Label </span><span class="s1">text</span><span class="s2">=&quot;Movies:&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;ListView </span><span class="s1">fx:id</span><span class="s2">=&quot;movieListView&quot; </span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/VBox&gt;</span>
+    <span class="s0">&lt;/center&gt;</span>
+    <span class="s0">&lt;bottom&gt;</span>
+        <span class="s0">&lt;HBox </span><span class="s1">alignment</span><span class="s2">=&quot;CENTER&quot; </span><span class="s1">spacing</span><span class="s2">=&quot;10&quot;</span><span class="s0">&gt;</span>
+            <span class="s0">&lt;padding&gt;</span>
+                <span class="s0">&lt;Insets </span><span class="s1">bottom</span><span class="s2">=&quot;10&quot; </span><span class="s1">left</span><span class="s2">=&quot;10&quot; </span><span class="s1">right</span><span class="s2">=&quot;10&quot; </span><span class="s1">top</span><span class="s2">=&quot;10&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;/padding&gt;</span>
+            <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;addButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onAddMovieClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Add Movie&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;deleteButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onDeleteMovieClicked&quot; </span><span class="s1">prefHeight</span><span class="s2">=&quot;27.0&quot; </span><span class="s1">prefWidth</span><span class="s2">=&quot;93.0&quot; </span><span class="s1">text</span><span class="s2">=&quot;Delete Movie&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;editRatingButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onSetRatingClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Edit Rating&quot; </span><span class="s0">/&gt;</span>
+            <span class="s0">&lt;Button </span><span class="s1">fx:id</span><span class="s2">=&quot;playButton&quot; </span><span class="s1">onAction</span><span class="s2">=&quot;#onPlayClicked&quot; </span><span class="s1">text</span><span class="s2">=&quot;Play Movie&quot; </span><span class="s0">/&gt;</span>
+        <span class="s0">&lt;/HBox&gt;</span>
+    <span class="s0">&lt;/bottom&gt;</span>
+<span class="s0">&lt;/BorderPane&gt;</span>
+</pre>
+</body>
+</html>
